@@ -6,7 +6,7 @@ This project asks the user for a low value, a high value, and a value in the mid
 
 Here is a screenshot of results:
 
-Ch 16 Low Mid High
+![Ch 16 Low Mid High]()
 
 Run the project once and check all the exceptions, as shown above, and take a screenshot. Run the project again with no errors, and take a screenshot.
 
