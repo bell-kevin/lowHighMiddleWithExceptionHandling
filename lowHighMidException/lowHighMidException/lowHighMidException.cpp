@@ -45,7 +45,7 @@ int main() {
 	do {
 		cout << "Enter an integer for the low number: ";
 		try {
-			lowValue = range.getInput(lowValue, highValue);
+			lowValue = range.getInput(lowValue, 0);
 		}
 		catch (IntRange2::TooLow) {
 			cout << "The value is too low" << endl;
@@ -57,7 +57,7 @@ int main() {
 	do {
 		cout << "Enter an integer for the high number: ";
 		try {
-			highValue = range.getInput(highValue, input);
+			highValue = range.getInput(highValue, lowValue);
 		}
 		catch (IntRange2::TooLow) {
 			cout << "The value you entered is too low" << endl;
@@ -65,7 +65,7 @@ int main() {
 		catch (IntRange2::TooHigh) {
 			cout << "The value you entered is too high" << endl;
 		}
-	} while (highValue >= lowValue);
+	} while (highValue <= lowValue);
 
 	// enter an integer between the low and high numbers
 	//do while loop to check for valid input
@@ -82,9 +82,10 @@ int main() {
 		}
 	} while (userValue <= lowValue || userValue >= highValue);
 
+	cout << endl;
 	cout << "Low number is " << lowValue << " and high number is " << highValue << endl;
 	cout << "Middle number is " << userValue << endl;
 
 	system("pause");
 	return 0;
-} // end of main
+} // end of main function
