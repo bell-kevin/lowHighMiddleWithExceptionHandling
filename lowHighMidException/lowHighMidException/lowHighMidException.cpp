@@ -1,91 +1,124 @@
 // lowHighMidException.cpp
+
 #include <iostream>
 using namespace std;
 
-class IntRange2 {
+class HighLowMid
+{
 private:
-	int input;
-	int lower;
-	int upper;
+	int high=0;
+	int low=0;
+	int mid = 0;
+	
 public:
 	//exception classes
 	class TooLow {};
 	class TooHigh {};
-	//member functions
-
-	IntRange2() {
-		lower = 0;
-		upper = -1;
+	
+	//three member functions
+	HighLowMid() {
+		low = 0;
+		high = -1;
 	}
-	int getInput(int high, int low)
-	{
-		cin >> input;
-		if (input <= 0) {
+	bool getLow() {
+		int temp = 0;
+		cin >> temp;
+		if (temp <= 0) {
 			throw TooLow();
 		}
-		else if (input <= lower) {
+		else {
+			low = temp;
+			return true;
+		} 
+	}
+	
+	bool getHigh() {
+		int temp = 0;
+		cin >> temp;
+		if (temp <= low) {
+			throw TooLow();
+		}
+		else {
+			high = temp;
+			return true;
+		}
+
+	}
+	
+	bool getMid() {
+		int temp = 0;
+		cin >> temp;
+		if (temp <= low) {
+			throw TooLow();
+		} else if (temp >= high) {
 			throw TooHigh();
 		}
 		else {
-			return input;
+			mid = temp;
+			return true;
 		}
 	}
+	// return the mid value
+	int getMidValue() {
+		return mid;
+	}
+	
+	// return the high value
+	int getHighValue() {
+		return high;
+	}
+	
+	// return the low value
+	int getLowValue() {
+		return low;
+	}
+	
 };
 
 int main() {
+	
+		HighLowMid hlm;
+		bool lowValid=false, highValid=false, midValid = false;
+		
 
-	cout << "Chapter 16 Low High Mid. by Kevin Bell\n\n";
+		cout << "Chapter 16 Low High Mid. by Kevin Bell\n\n";
 
-	IntRange2 range;
+		do {
+			cout << "Enter an integer for the low number: ";
+			try {
+				lowValid = hlm.getLow();
+			}
+			catch (HighLowMid::TooLow) {
+				cout << "The value is too low.\n";
+			}
+		} while (!lowValid);
 
-	int lowValue = 0, highValue = 0, middleValue = 0, userValue = 0, input = 0;
+		do {
+			cout << "Enter an integer for the high number: ";
+			try {
+				highValid = hlm.getHigh();
+			}
+			catch (HighLowMid::TooLow) {
+				cout << "The value is too high.\n";
+			}
+		} while (!highValid);
 
-	// enter an integer for the low number
-	//do while loop to check for valid input
-	do {
-		cout << "Enter an integer for the low number: ";
-		try {
-			lowValue = range.getInput(lowValue, 0);
-		}
-		catch (IntRange2::TooLow) {
-			cout << "The value is too low" << endl;
-		}
-	} while (lowValue <= 0);
-
-	// enter an integer for the high number
-	//do while loop to check for valid input
-	do {
-		cout << "Enter an integer for the high number: ";
-		try {
-			highValue = range.getInput(highValue, lowValue);
-		}
-		catch (IntRange2::TooLow) {
-			cout << "The value you entered is too low" << endl;
-		}
-		catch (IntRange2::TooHigh) {
-			cout << "The value you entered is too high" << endl;
-		}
-	} while (highValue <= lowValue);
-
-	// enter an integer between the low and high numbers
-	//do while loop to check for valid input
-	do {
-		cout << "Enter an integer between " << lowValue << " and " << highValue << ": ";
-		try {
-			userValue = range.getInput(userValue, input);
-		}
-		catch (IntRange2::TooLow) {
-			cout << "The value you entered is too low" << endl;
-		}
-		catch (IntRange2::TooHigh) {
-			cout << "The value you entered is too high" << endl;
-		}
-	} while (userValue <= lowValue || userValue >= highValue);
-
-	cout << endl;
-	cout << "Low number is " << lowValue << " and high number is " << highValue << endl;
-	cout << "Middle number is " << userValue << endl;
-
-	system("pause");
-	return 0;
-} // end of main function
+		do {
+			cout << "Enter an integer between " << hlm.getLowValue() << " and " << hlm.getHighValue() << ": ";
+			try {
+				midValid = hlm.getMid();
+			}
+			catch (HighLowMid::TooLow) {
+				cout << "The value is too low.\n";
+			}
+			catch (HighLowMid::TooHigh) {
+				cout << "The value is too high.\n";
+			}
+		} while (!midValid);
+		
+		cout << endl;
+		cout << "Low number is " << hlm.getLowValue() << " and high number is " << hlm.getHighValue() << endl;
+		cout << "Middle number is " << hlm.getMidValue() << endl;
+		system("pause");
+		return 0;
+} // end main
