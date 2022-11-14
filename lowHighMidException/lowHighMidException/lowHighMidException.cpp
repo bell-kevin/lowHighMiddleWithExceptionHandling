@@ -1,14 +1,10 @@
-// lowHighMidException.cpp
-
 #include <iostream>
 using namespace std;
 
 class HighLowMid
 {
 private:
-	int high=0;
-	int low=0;
-	int mid = 0;
+	int high = 0, low = 0, mid = 0;
 	
 public:
 	//exception classes
@@ -78,7 +74,7 @@ public:
 int main() {
 	
 		HighLowMid hlm;
-		bool lowValid=false, highValid=false, midValid = false;
+		bool lowValid = false, highValid = false, midValid = false;
 		
 
 		cout << "Chapter 16 Low High Mid. by Kevin Bell\n\n";
