@@ -6,11 +6,11 @@ This project asks the user for a low value, a high value, and a value in the mid
 
 Here is a screenshot of results:
 
-![Ch 16 Low Mid High]()
+![Ch 16 Low Mid High](https://github.com/bell-kevin/lowHighMiddleWithExceptionHandling/blob/main/highLowMid.PNG)
 
 Run the project once and check all the exceptions, as shown above, and take a screenshot. Run the project again with no errors, and take a screenshot.
 
-![p]() 
+![p](https://github.com/bell-kevin/lowHighMiddleWithExceptionHandling/blob/main/2.PNG) 
 
 NOTE: Remember the requirements for a header and a pause at the end of the program, discussed in the reading "Console Applications". These are required in every console application project.
 
