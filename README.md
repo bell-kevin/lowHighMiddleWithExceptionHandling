@@ -6,7 +6,7 @@ This project asks the user for a low value, a high value, and a value in the mid
 
 Here is a screenshot of results:
 
-![Ch 16 Low Mid High](https://github.com/bell-kevin/lowHighMiddleWithExceptionHandling/blob/main/highLowMid.PNG)
+![Ch 16 Low Mid High](https://github.com/bell-kevin/lowHighMiddleWithExceptionHandling/blob/main/save.PNG)
 
 Run the project once and check all the exceptions, as shown above, and take a screenshot. Run the project again with no errors, and take a screenshot.
 
