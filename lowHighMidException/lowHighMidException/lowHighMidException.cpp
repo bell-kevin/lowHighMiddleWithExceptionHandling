@@ -95,7 +95,7 @@ int main() {
 				highValid = hlm.getHigh();
 			}
 			catch (HighLowMid::TooLow) {
-				cout << "The value is too high.\n";
+				cout << "The value is too low.\n";
 			}
 		} while (!highValid);
 
